@@ -1,3 +1,5 @@
+import 'package:demo_project/pages/home_page.dart';
+import 'package:demo_project/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -10,14 +12,20 @@ class MyDemoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("welcome to my Demo app"),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.grey),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
       ),
-        ),
-      ),
+      initialRoute: "/",
+      routes: {
+        "/" : (context)=> LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login" : (context)=> LoginPage(),
+      },
+
     );
   }
 }
